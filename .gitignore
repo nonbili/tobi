@@ -1,0 +1,10 @@
+.cache
+dist
+node_modules
+yarn-error.log
+
+.psc-ide-port
+.psci_modules
+.spago
+generated-docs
+output

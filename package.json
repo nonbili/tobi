@@ -1,0 +1,28 @@
+{
+  "name": "tobi",
+  "version": "0.1.0",
+  "private": true,
+  "repository": "https://github.com/nonbili/tobi",
+  "author": "Nonbili",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "./build.sh",
+    "build:css": "tailwind build src/main.css -o dist/main.css",
+    "dev": "./dev.sh",
+    "tobi": "./src-tauri/target/release/tobi",
+    "pscid:build": "spago build",
+    "start": "node dev.js",
+    "start:ps": "spago build -w",
+    "tauri": "tauri dev"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "estrella": "^1.0.9",
+    "serve-http": "^1.0.6",
+    "tailwindcss": "^1.6.0",
+    "tauri": "^0.11.1"
+  },
+  "dependencies": {
+    "pulse-feed-parser": "^0.1.0"
+  }
+}
