@@ -9,6 +9,7 @@ import App.Render.InitModal as InitModal
 import App.Render.ItemList as ItemList
 import App.Render.ItemReader as ItemReader
 import App.Types (Action(..), DSL, HTML, Message, Query, State, initialState)
+import Data.Array as Array
 import Halogen as H
 import Halogen.HTML as HH
 import Halogen.HTML.Events as HE
@@ -67,8 +68,8 @@ handleAction = case _ of
     state <- H.get
     H.liftAff (Feed.fetchUrl state.url) >>= traverse_ \feed -> do
       H.modify_ \s -> s
-        { feeds = [feed]
-        , selectedFeeds = [feed]
+        { feeds = Array.cons feed s.feeds
+        , selectedFeedUrls = [state.url]
         }
       liftAff $ Feed.save state.config feed
 

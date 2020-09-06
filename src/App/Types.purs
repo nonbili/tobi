@@ -30,7 +30,7 @@ type State =
   , settings :: Settings.Settings
   , url :: String
   , feeds :: Array Feed
-  , selectedFeeds :: Array Feed
+  , selectedFeedUrls :: Array String
   , selectedItem :: Maybe Item
   , isInitModalOpen :: Boolean
   }
@@ -41,7 +41,7 @@ initialState =
   , settings: Settings.initialSettings
   , url: ""
   , feeds: []
-  , selectedFeeds: []
+  , selectedFeedUrls: []
   , selectedItem: Nothing
   , isInitModalOpen: false
   }

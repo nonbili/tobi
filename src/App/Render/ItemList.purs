@@ -16,4 +16,6 @@ render state =
       [ HH.text item.title ]
   ]
   where
-  items = Array.concat $ _.items <$> state.selectedFeeds
+  items =
+    Array.concat $ _.items <$>
+      Array.filter (\x -> Array.elem x.url state.selectedFeedUrls) state.feeds
