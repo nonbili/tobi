@@ -1,5 +1,7 @@
 module FFI.FeedParser
-  ( parse
+  ( Feed
+  , Image
+  , Item
   , fetch
   ) where
 
@@ -8,15 +10,28 @@ import Tobi.Prelude
 import Control.Promise (Promise)
 import Control.Promise as Promise
 import Data.Argonaut.Core (Json)
-import Data.Argonaut.Decode (decodeJson)
-import Model.Feed (Feed)
+import Data.Argonaut.Decode (decodeJson, printJsonDecodeError)
 
-foreign import parse_ :: String -> Effect (Promise Json)
+type Item =
+  { title :: String
+  , content :: String
+  , published :: String
+  }
 
-parse :: String -> Aff (Either String Feed)
-parse xml = Promise.toAffE (parse_ xml) >>= pure <<< decodeJson
+type Image =
+  { title :: String
+  , url :: String
+  }
+
+type Feed =
+  { title :: String
+  , image :: Maybe Image
+  , items :: Array Item
+  }
 
 foreign import fetch_ :: String -> Effect (Promise Json)
 
 fetch :: String -> Aff (Either String Feed)
-fetch url = Promise.toAffE (fetch_ url) >>= pure <<< decodeJson
+fetch url =
+  Promise.toAffE (fetch_ url) >>=
+    pure <<< (lmap printJsonDecodeError <<< decodeJson)

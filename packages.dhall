@@ -1,8 +1,8 @@
 let upstream =
-      https://github.com/purescript/package-sets/releases/download/psc-0.13.6-20200502/packages.dhall sha256:1e1ecbf222c709b76cc7e24cf63af3c2089ffd22bbb1e3379dfd3c07a1787694
+      https://github.com/purescript/package-sets/releases/download/psc-0.13.8-20200831/packages.dhall sha256:cdb3529cac2cd8dd780f07c80fd907d5faceae7decfcaa11a12037df68812c83
 
 let nonbili =
-      https://github.com/nonbili/package-sets/releases/download/v0.7/packages.dhall sha256:b09c8d62a7a1e04fd150d32d80f575c0f1e6d82f2dc2a763eb4271cdb61a154d
+      https://github.com/nonbili/package-sets/releases/download/v0.9/packages.dhall sha256:0cfeb05b3787dbb1da744fba6f741746f482bed6f7442cfb41af7316dde97c5e
 
 let overrides = {=}
 
