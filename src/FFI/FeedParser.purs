@@ -13,7 +13,8 @@ import Data.Argonaut.Core (Json)
 import Data.Argonaut.Decode (decodeJson, printJsonDecodeError)
 
 type Item =
-  { title :: String
+  { link :: String
+  , title :: String
   , content :: String
   , published :: String
   }

@@ -65,7 +65,7 @@ handleAction = case _ of
   OnSubmitLink event -> do
     H.liftEffect $ Event.preventDefault event
     state <- H.get
-    H.liftAff (Feed.fetch state.url) >>= traverse_ \feed -> do
+    H.liftAff (Feed.fetchUrl state.url) >>= traverse_ \feed -> do
       H.modify_ \s -> s
         { feeds = [feed]
         , selectedFeeds = [feed]
